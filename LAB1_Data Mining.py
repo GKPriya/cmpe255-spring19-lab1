@@ -104,32 +104,6 @@ def num_friends(user):
                         
                         print(repr(user) + ' is friends with ' + i['name'])
                         
-        
-           
-      
-        
-       
-            
-            
-                
-               
-        
-                
-                
-                
-    
-    
-    
-           
-                
-            
-                    
-
-           
-           
-            
-            
-              
 
 
 # In[3]:
