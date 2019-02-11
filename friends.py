@@ -63,6 +63,27 @@ friendship = [
 # In[2]:
 
 
+def helper():
+    for i in users:
+        
+        i['friends']=[]
+        i['count'] = 0
+        #adding friends into the list of friends in the dictinary of each user
+        for j,k in friendship:
+            if j == i['id'] :
+                i['friends'].append(k)
+              
+            if k == i['id'] :
+                i['friends'].append(j)
+   
+        i['count'] = (len(i['friends']))  
+        
+    
+
+
+# In[3]:
+
+
 #finding  the number of friends for each user
 def num_friends(user):
     '''
@@ -76,55 +97,43 @@ def num_friends(user):
         
         # creating a new key value pair of friends in the dictionary user which will contain the friends list of that particular user
 
-        i['friends']=[]
-        i['count'] = 0
-        #adding friends into the list of friends in the dictinary of each user
-        for j,k in friendship:
-            if j == i['id'] :
-                i['friends'].append(k)
-              
-            if k == i['id'] :
-                i['friends'].append(j)
-   
-        i['count'] = (len(i['friends']))  
-        
-        #print(i['count'])
+        helper()
         
         if user==i['id'] or user==i['name']:
             
             print(i['name'] +' has '+ repr(i['count'])+' friends')
             print("The id of " + i['name'] + ' is '+repr(i['id']))
-            #print(i['count'])
-            #print(i['friends'])
+           
             for x in i['friends']:
-                #print(x)
+                
                 for i in users:
-                    #print(repr(i['id']) + '--' + repr(x))
+                    
                     if i['id'] == x:
                         
                         print(repr(user) + ' is friends with ' + i['name'])
                         
-
-
-# In[3]:
-
-
-num_friends(0)
+          
 
 
 # In[4]:
 
 
-num_friends('Dunn')
+num_friends(0)
 
 
 # In[5]:
 
 
-print(users)
+num_friends('Dunn')
 
 
 # In[6]:
+
+
+print(users)
+
+
+# In[7]:
 
 
 def sort_by_num_friends():
@@ -138,22 +147,11 @@ def sort_by_num_friends():
     
    # take second element for sort
     for i in users:
+        helper()
         
-   # creating a new key value pair of friends in the dictionary user which will contain the friends list of that particular user
-
-        i['friends']=[]
-        i['count'] = 0
-        #adding friends into the list of friends in the dictinary of each user
-        for j,k in friendship:
-            if j == i['id'] :
-                i['friends'].append(k)
-              
-            if k == i['id'] :
-                i['friends'].append(j)
-   
-        i['count'] = (len(i['friends']))  
+       
     def takeSecond(elem):
-       # print(elem)
+      
         return elem["count"]
 
     # sort list with key
@@ -169,7 +167,7 @@ def sort_by_num_friends():
     pass
 
 
-# In[7]:
+# In[8]:
 
 
 sort_by_num_friends()
